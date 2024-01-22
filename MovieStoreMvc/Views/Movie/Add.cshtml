@@ -1,0 +1,64 @@
+﻿@model MovieStoreMvc.Models.Domain.Movie
+
+@{
+
+}
+
+<form class="w-50 mx-auto mt-5 Contentt float-in" asp-action="Add" method="post" asp-controller="Movie" enctype="multipart/form-data">
+    <h2 class="pb-3">Add Movie</h2>
+    <div class="mb-3">
+        <label asp-for="Title" class="form-label">Movie Name</label>
+        <input type="text" class="form-control" asp-for="Title">
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ImageFile" class="form-label">Image File</label>
+        <input type="file" class="form-control" asp-for="ImageFile">
+        <span asp-validation-for="ImageFile" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="VideoFile" class="form-label">Video File</label>
+        <input type="file" class="form-control" asp-for="VideoFile" accept="video/*">
+        <span asp-validation-for="VideoFile" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Genres" class="form-label">Genre</label>
+        <select asp-items="Model.GenreList" class="form-control" asp-for="Genres" multiple>
+            <option value="">--Select--</option>
+        </select>
+        <span asp-validation-for="Genres" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ReleaseYear" class="form-label">Released Year</label>
+        <input type="text" class="form-control" asp-for="ReleaseYear">
+        <span asp-validation-for="ReleaseYear" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Cast" class="form-label">Cast</label>
+        <input type="text" class="form-control" asp-for="Cast">
+        <span asp-validation-for="Cast" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Director" class="form-label">Director</label>
+        <input type="text" class="form-control" asp-for="Director">
+        <span asp-validation-for="Director" class="text-danger"></span>
+    </div>
+
+    @if (TempData["msg"] != null)
+    {
+        <div class="alert alert-success mb-3">
+            @TempData["msg"]
+        </div>
+    }
+
+    <div class="mb-3">
+        <button class="btn btn-primary" type="submit">Add</button>
+        <a class="btn btn-secondary" href="/Movie/MovieList">All Records</a>
+    </div>
+</form>

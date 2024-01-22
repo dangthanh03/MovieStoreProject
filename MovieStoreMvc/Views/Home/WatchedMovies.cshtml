@@ -1,0 +1,23 @@
+﻿@model MovieStoreMvc.Models.DTO.WatchedMoviesViewModel
+
+<h2>Watched Movies</h2>
+
+<div class="row  float-in">
+    @foreach (var movie in Model.WatchedMovies)
+    {
+        <div class="col-md-3 mb-3 mr-5 ">
+            <div class="card">
+                @if (!string.IsNullOrEmpty(movie.MovieImage))
+                {
+                    <img class="card-img-top" src="@Url.Content(movie.MovieImage)" alt="Movie Image" />
+                }
+                <div class="card-body">
+                    <h5 class="card-title">@movie.Title</h5>
+                    <p class="card-text">@movie.ReleaseYear</p>
+                    <a href="@Url.Action("MovieDetail", "Home", new { movieId = movie.Id })" class="btn btn-primary">Details</a>
+
+                </div>
+            </div>
+        </div>
+    }
+</div>

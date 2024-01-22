@@ -1,0 +1,57 @@
+﻿@model MovieStoreMvc.Models.DTO.MovieListVm
+
+
+<div class="container mt-4 Contentt">
+    <div class="row">
+        <div class="col-md-6">
+            <section class="search-bar">
+                <form method="get" asp-action="Index" class="form-inline">
+                    
+                    <div class="form-group">
+                        <label class="mr-2">Genres:</label>
+                        <select asp-for="SelectedGenres" asp-items="Model.GenreList" multiple class="form-control mr-2" ></select>
+                        <input type="text" name="term" placeholder="Search here" class="form-control mr-2">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+            </section>
+        </div>
+
+
+    </div>
+
+    <div class="row mt-4 card-container">
+        @foreach (var movie in Model.MovieList)
+        {
+            <div class="col-md-3 mb-3 mr-5 float-in">
+                <div class="card" style="width: 18rem;" onclick="window.location.href='/Home/MovieDetail?movieId=@movie.Id'">
+                    <div class="image-container">
+                        <img src="@movie.MovieImage" class="card-img-top" alt="Movie Image">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">@movie.Title</h5>
+                        <p class="card-text">@movie.GenreNames</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <div class="pagination">
+                @for (int i = 1; i <= Model.TotalPages; i++)
+                {
+                    if (i == Model.CurrentPage)
+                    {
+                        <a href="/Home/Index?currentPage=@i&term=@Model.Term" class="active">@i</a>
+                    }
+                    else
+                    {
+                        <a href="/Home/Index?currentPage=@i&term=@Model.Term">@i</a>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>

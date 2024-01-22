@@ -1,0 +1,64 @@
+﻿@model MovieStoreMvc.Models.Domain.Movie
+@{
+    ViewData["Title"] = "Watch Movie - " + Model.Title;
+}
+
+<div class="container mt-4 Contentt float-in">
+    <h2>Watch @Model.Title</h2>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div>
+                <strong>Release Year:</strong> @Model.ReleaseYear
+            </div>
+
+            <div>
+                <strong>Cast:</strong> @Model.Cast
+            </div>
+
+            <div>
+                <strong>Director:</strong> @Model.Director
+            </div>
+
+            <div>
+                <strong>Genres:</strong>
+                @if (Model.GenreNames != null)
+                {
+                    <span>@Model.GenreNames</span>
+                }
+                else
+                {
+                    <span>No genres available</span>
+                }
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            @if (!string.IsNullOrEmpty(Model.MovieImage))
+            {
+                <div>
+                    <img class="img-fluid" src="@Url.Content(Model.MovieImage)" alt="Movie Image" />
+                </div>
+            }
+        </div>
+    </div>
+
+    <!-- Thêm video player để phát video -->
+    <div class="mt-4 row">
+        @if (!string.IsNullOrEmpty(Model.VideoPath))
+        {
+            <video controls width="100%">
+                <source src="@Model.VideoPath" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        }
+        else
+        {
+            <p>No video available for this movie.</p>
+        }
+    </div>
+
+    <div class="mt-4 row">
+        <a href="@Url.Action("Index", "Home")" class="btn btn-primary">Back to Movie List</a>
+    </div>
+</div>

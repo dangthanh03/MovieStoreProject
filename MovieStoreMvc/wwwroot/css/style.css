@@ -1,0 +1,66 @@
+﻿* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.Contentt{
+    height: 100%;
+    margin-top: 70px !important;
+}
+
+
+/* Define a keyframe animation named 'floatIn' */
+@keyframes floatIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply the 'floatIn' animation to the animated element */
+.float-in {
+    animation: floatIn 1s ease-out; /* Adjust the duration and timing function as needed */
+   
+}
+
+.pagination {
+    position: relative;
+    bottom: 20px;
+    right:40px;
+    display: flex;
+    justify-content: right;
+}
+
+    .pagination a {
+        color: black;
+        padding: 8px 16px;
+        text-decoration: none;
+        transition: background-color .3s;
+    }
+
+        /* Style the active/current link */
+        .pagination a.active {
+            background-color: rgb(169, 30, 255);
+            color: white;
+        }
+
+        /* Add a grey background color on mouse-over */
+        .pagination a:hover:not(.active) {
+            background-color: #ddd;
+        }
+
+
+.footerr {
+    margin-top: 40px;
+    color: white !important;
+    background-color: black !important;
+    padding: 20px;
+    
+    }
+

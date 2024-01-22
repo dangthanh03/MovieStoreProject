@@ -1,0 +1,53 @@
+﻿@model MovieStoreMvc.Models.Domain.Movie
+@{
+    ViewData["Title"] = "Movie Details";
+}
+
+<div class="container mt-4 Contentt float-in">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>@Model.Title</h2>
+
+            <div>
+                <strong>Release Year:</strong> @Model.ReleaseYear
+            </div>
+
+            <div>
+                <strong>Cast:</strong> @Model.Cast
+            </div>
+
+            <div>
+                <strong>Director:</strong> @Model.Director
+            </div>
+
+            <div>
+                <strong>Genres:</strong>
+                @if (Model.GenreNames != null)
+                {
+                    <span>@Model.GenreNames</span>
+                }
+                else
+                {
+                    <span>No genres available</span>
+                }
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            @if (!string.IsNullOrEmpty(Model.MovieImage))
+            {
+                <div>
+                    <img class="img-fluid" src="@Url.Content(Model.MovieImage)" alt="Movie Image" />
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <!-- Sử dụng form để gọi đến action WatchMovie với HTTP POST -->
+        <form method="post" action="@Url.Action("WatchMovie", "Movie")">
+            @Html.HiddenFor(model => model.Id) <!-- Hidden field for movie Id -->
+            <button type="submit" class="btn btn-primary">Watch movie</button>
+        </form>
+    </div>
+</div>

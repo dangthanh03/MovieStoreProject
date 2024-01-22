@@ -1,0 +1,28 @@
+﻿@model MovieStoreMvc.Models.Domain.Genre
+
+@{
+
+}
+
+<form class="w-50 mx-auto mt-5 Contentt float-in" asp-action="Update" method="post" asp-controller="Genre">
+    <h2 class="pb-3">Update Genre</h2>
+    <input type="hidden" asp-for="Id" />
+
+    <div class="mb-3">
+        <label asp-for="GenreName" class="form-label">Genre Name</label>
+        <input type="text" class="form-control" asp-for="GenreName">
+        <span asp-validation-for="GenreName" class="text-danger"></span>
+    </div>
+
+    @if (TempData["msg"] != null)
+    {
+        <div class="alert alert-success mb-3">
+            @TempData["msg"]
+        </div>
+    }
+
+    <div class="mb-3">
+        <button class="btn btn-primary" type="submit">Update</button>
+        <a class="btn btn-secondary" href="/Genre/GenreList">All Records</a>
+    </div>
+</form>

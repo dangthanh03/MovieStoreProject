@@ -1,0 +1,183 @@
+﻿
+a {
+    text-decoration: none;
+}
+.nav-barr {
+    z-index: 10;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: black;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.Section{
+    min-height: 100%;
+    
+}
+
+.logo {
+    font-size: 1.5rem;
+}
+
+.nav-linkk {
+    list-style: none;
+    display: flex;
+    margin: 0px;
+}
+
+    .nav-linkk li {
+        margin: 0 10x;
+    }
+
+    .nav-linkk a {
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+    .nav-linkk li a {
+        text-decoration:none;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+
+  
+    .nav-linkk a.active {
+            background-color: #555;
+        }
+
+    /* Style the first level dropdown */
+    .nav-linkk li:hover {
+        background-color: #555; /* Change background color on hover */
+    }
+
+/* Style the nested dropdown */
+.dropdown-submenu {
+    position: relative;
+}
+
+    .dropdown-submenu a::after {
+        font-size: 0.5em;
+        margin-left: 5px;
+    }
+
+    .dropdown-submenu a:hover {
+       
+    }
+
+/* Style the second level dropdown items */
+.dropdown-nav-linkk {
+    display: none;
+    position: absolute;
+    top: 103%;
+    left: 0;
+    background-color: #333;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Display nested dropdown on hover */
+.dropdown-submenu:hover .dropdown-nav-linkk {
+    display: inline-block;
+}
+
+/* Style the third level dropdown items */
+.dropdown-submenu-nav1,
+.dropdown-submenu-nav2 {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background-color: #333;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Display second level dropdown1 on hover */
+.dropdown-submenu1:hover .dropdown-submenu-nav1 {
+    display: block;
+}
+
+/* Display second level dropdown2 on hover */
+.dropdown-submenu2:hover .dropdown-submenu-nav2 {
+    display: block;
+}
+
+/* Style the third level dropdown items */
+.dropdown-submenu-nav1 li a,
+.dropdown-submenu-nav2 li a {
+    color: #fff; /* Change color for dropdown items */
+    padding: 10px;
+    display: block;
+}
+
+    /* Change background color on hover for third level dropdown items */
+    .dropdown-submenu-nav1 li a:hover,
+    .dropdown-submenu-nav2 li a:hover {
+        background-color: #555;
+    }
+
+/* Remove list-style-type for li elements */
+.nav-linkk li,
+.dropdown-submenu-nav1 li,
+.dropdown-submenu-nav2 li {
+    list-style-type: none;
+}
+
+/* Media query for mobile responsiveness */
+@media (max-width: 600px) {
+    .dropdown-submenu a::after {
+        text-decoration: none;
+    }
+
+    .dropdown-nav-linkk,
+    .dropdown-submenu-nav1,
+    .dropdown-submenu-nav2 {
+        position: static;
+        display: none;
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .dropdown-submenu:hover .dropdown-nav-linkk,
+    .dropdown-submenu1:hover .dropdown-submenu-nav1,
+    .dropdown-submenu2:hover .dropdown-submenu-nav2 {
+        display: block;
+    }
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+
+    
+}
+
+.image-container {
+    position: relative;
+    overflow: hidden;
+    height: 0;
+    padding-top: 80%; /* Tỉ lệ 3:2 */
+}
+
+    .image-container img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Đảm bảo hình ảnh không bị méo */
+    }
+
+.card {
+    height: 100%; /* Đảm bảo chiều cao của card bằng nhau */
+}
+
+.col-md-3 {
+    flex: 0 0 30%; /* Thiết lập chiều rộng tối đa của mỗi card */
+    box-sizing: border-box;
+}

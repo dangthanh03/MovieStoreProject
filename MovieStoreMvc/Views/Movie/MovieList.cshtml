@@ -1,0 +1,45 @@
+﻿@model MovieStoreMvc.Models.DTO.MovieListVm
+
+@{
+
+}
+
+<section class="container Contentt float-in">
+    <div class="tbl-container">
+        <h2>Movies</h2>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Genre</th>
+                    <th>Release Year</th>
+                    <th>Image</th>
+                    <th>Cast</th>
+                    <th>Director</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.MovieList)
+                {
+                    <tr>
+                        <td>@item.Title</td>
+                        <td>@item.GenreNames</td>
+                        <td>@item.ReleaseYear</td>
+                        <td><img style="height:100px; width:100px" src="@item.MovieImage" alt="Movie Image" /></td>
+                        <td>@item.Cast</td>
+                        <td>@item.Director</td>
+                        <td>
+                            <a href="/Movie/Edit?id=@item.Id" class="btn btn-primary"><i class="fa fa-edit"></i> Edit</a>
+                            <a href="/Movie/Delete?id=@item.Id" onclick="return window.confirm('Are you sure?')" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="input-container">
+            <a href="/Movie/Add" class="btn btn-secondary">Add Movie</a>
+        </div>
+    </div>
+</section>
